@@ -4,11 +4,12 @@ It supports **Redis caching** to improve performance for repeated requests.
 The service exposes a REST API that returns **PNG images**.
 ---
 ## ✨ Features
-- Generate **QR codes** and **CODE 128 barcodes**
+- Generate **QR codes** and **all ZXing-supported barcode formats** (CODE 128, EAN, UPC, etc.)
 - Configurable **width** and **height**
 - **Redis caching** to speed up repeated requests
 - Ready to run in **Docker**
 - Configurable via Spring profiles (`application.properties` and `application-docker.properties`)
+- Uses **ImageUtils** for optimized image-to-byte conversion
 ---
 ## 🛠️ Technologies Used
 - **Java 21**
@@ -53,7 +54,7 @@ Accept: image/png
 ```
 
 - text ✏️: The data you want to encode.
-- type 🔢: "QR" for QR Code, "CODE_128" for Code 128 barcode. 
+- type 🔢: Barcode type (QR, CODE_128, EAN_13, UPC_A, etc.) 
 - width 📏: Width of the image in pixels. 
 - height 📐: Height of the image in pixels.
 
@@ -88,7 +89,7 @@ Saves the generated barcode as barcode.png using the same cURL command with upda
 ---
 ## 🛣️ Roadmap
 
-- [ ] Support additional barcode formats (e.g., EAN, UPC)
+- [X] Support additional barcode formats (e.g., EAN, UPC)
 - [ ] Add custom colors and logo overlays for QR codes 🎨 
 - [ ] Implement rate limiting to avoid abuse 🚦 
 - [ ] Add API key authentication for secure access 🔑 
