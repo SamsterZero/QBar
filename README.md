@@ -86,3 +86,12 @@ The generated QR code image will be saved as qr.png ✅
 Saves the generated barcode as barcode.png using the same cURL command with updated JSON.
 
 ---
+## 🛣️ Roadmap
+
+- [ ] Support additional barcode formats (e.g., EAN, UPC)
+- [ ] Add custom colors and logo overlays for QR codes 🎨 
+- [ ] Implement rate limiting to avoid abuse 🚦 
+- [ ] Add API key authentication for secure access 🔑 
+- [ ] Provide online frontend for quick QR/barcode generation 🌐 
+- [ ] Enable dynamic TTL for cached codes ⏳ 
+- [ ] Add unit & integration tests for all endpoints ✅
