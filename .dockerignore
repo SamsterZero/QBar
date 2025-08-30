@@ -1,0 +1,64 @@
+# =======================
+# Ignore everything by default except what we explicitly need
+# =======================
+
+# Build artifacts
+target/
+build/
+*.class
+*.jar
+*.war
+
+# IDE / Editor
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.project
+.classpath
+.settings/
+bin/
+nbproject/
+out/
+
+# Logs
+*.log
+logs/
+app/logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker / environment
+.docker/
+docker-data/
+docker-compose.override.yml
+.env
+
+# Maven temp logs
+.mvn/logs/
+.mvn/timing.properties
+dependency-reduced-pom.xml
+
+# Images / temporary generated files
+*.png
+*.jpg
+*.bmp
+
+# Redis dumps
+dump.rdb
+*.rdb
+
+# Editor swap files
+*.swp
+*.swo
+
+# ======================================
+# KEEP FOR BUILD CACHING
+# ======================================
+!pom.xml
+!.mvn/
+!mvnw
+!src/
