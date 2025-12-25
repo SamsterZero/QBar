@@ -21,6 +21,11 @@ services:
       interval: 30s
       timeout: 5s
       retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: "512M"
   redis:
     image: redis:8.2.1-alpine3.22
     container_name: qbar-redis
@@ -31,6 +36,11 @@ services:
       interval: 30s
       timeout: 5s
       retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: "512M"
     volumes:
         - redis-data:/data
 volumes:
