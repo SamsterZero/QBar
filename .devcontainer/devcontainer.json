@@ -13,10 +13,9 @@
     }
   },
 
-  "mounts": [
-    "source=maven-cache-j21,target=/root/.m2,type=volume"
-  ],
+  "mounts": ["source=maven-cache-j21,target=/root/.m2,type=volume"],
 
+  "runArgs": ["--cpus=2", "--memory=4g", "--memory-swap=4g"],
   "forwardPorts": [8080, 5005],
 
   "customizations": {
