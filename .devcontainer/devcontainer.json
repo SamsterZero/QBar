@@ -1,16 +1,35 @@
 {
-  "name": "QBar",
-  "image": "mcr.microsoft.com/devcontainers/java:21",
+  "name": "QBar (Ubuntu)",
 
-  "runArgs": [
-    "--cpus=2",
-    "--memory=4g",
-    "--memory-swap=4g"
-  ],
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  "workspaceFolder": "/workspaces/QBar",
 
   "features": {
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
       "moby": false
+    }
+  },
+
+  "mounts": [
+    "source=maven-cache-j21,target=/root/.m2,type=volume"
+  ],
+
+  "forwardPorts": [8080, 5005],
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "vscjava.vscode-java-pack",
+        "redhat.java",
+        "redhat.vscode-xml",
+        "redhat.vscode-yaml",
+        "vmware.vscode-boot-dev-pack",
+        "ms-azuretools.vscode-docker"
+      ]
     }
   },
 
