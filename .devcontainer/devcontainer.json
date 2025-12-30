@@ -21,6 +21,7 @@
         "redhat.vscode-xml",
         "redhat.vscode-yaml",
         "vmware.vscode-boot-dev-pack",
+        "github.copilot-chat",
         "ms-azuretools.vscode-docker"
       ]
     }
