@@ -1,0 +1,29 @@
+services:
+  devcontainer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspaces/QBar:cached
+      - maven-cache-j21:/root/.m2
+    command: sleep infinity
+    tty: true
+    environment:
+      - DEBIAN_FRONTEND=noninteractive
+    networks:
+      - devcontainer-network
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+        reservations:
+          cpus: '2'
+          memory: 4G
+
+volumes:
+  maven-cache-j21:
+
+networks:
+  devcontainer-network:
+    driver: bridge
