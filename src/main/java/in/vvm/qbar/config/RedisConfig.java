@@ -22,6 +22,8 @@ public class RedisConfig {
         RedisCacheConfiguration cacheConfig = RedisCacheConfiguration.defaultCacheConfig()
                 .entryTtl(Duration.ofMinutes(10))
                 .disableCachingNullValues()
+                .serializeKeysWith(RedisSerializationContext.SerializationPair
+                    .fromSerializer(RedisSerializer.string()))
                 .serializeValuesWith(RedisSerializationContext.SerializationPair
                         .fromSerializer(RedisSerializer.byteArray()));
 
