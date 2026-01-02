@@ -8,19 +8,22 @@ import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.lang.NonNull;
 
 import java.time.Duration;
+import java.util.Objects;
 
 @Configuration
 @EnableCaching
 public class RedisConfig {
 
     @Bean
-    public RedisCacheManager cacheManager(RedisConnectionFactory connectionFactory) {
+    RedisCacheManager cacheManager(RedisConnectionFactory connectionFactory) {
 
         // Cache configuration: store values as byte arrays, TTL 10 minutes
+        Duration ttl = Objects.requireNonNull(Duration.ofMinutes(10));
         RedisCacheConfiguration cacheConfig = RedisCacheConfiguration.defaultCacheConfig()
-                .entryTtl(Duration.ofMinutes(10))
+                .entryTtl(ttl)
                 .disableCachingNullValues()
                 .serializeKeysWith(RedisSerializationContext.SerializationPair
                     .fromSerializer(RedisSerializer.string()))
