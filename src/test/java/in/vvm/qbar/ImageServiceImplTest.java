@@ -8,10 +8,12 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import in.vvm.qbar.service.impl.ImageServiceImpl;
 
+@DisplayName("ImageServiceImpl Test")
 class ImageServiceImplTest {
 
     private ImageServiceImpl imageService;
@@ -25,6 +27,7 @@ class ImageServiceImplTest {
     }
 
     @Test
+    @DisplayName("Valid PNG Format")
     void testToByteArray_ValidPngFormat() throws IOException {
         byte[] result = imageService.toByteArray(testImage, "png");
         assertNotNull(result);
@@ -32,6 +35,7 @@ class ImageServiceImplTest {
     }
 
     @Test
+    @DisplayName("Valid JPG Format")
     void testToByteArray_ValidJpgFormat() throws IOException {
         byte[] result = imageService.toByteArray(testImage, "jpg");
         assertNotNull(result);
@@ -39,6 +43,7 @@ class ImageServiceImplTest {
     }
 
     @Test
+    @DisplayName("Unsupported Format")
     void testToByteArray_UnsupportedFormat() {
         assertThrows(IOException.class, () -> {
             imageService.toByteArray(testImage, "unsupported");
@@ -46,6 +51,7 @@ class ImageServiceImplTest {
     }
 
     @Test
+    @DisplayName("Null Image")
     void testToByteArray_NullImage() {
         assertThrows(IllegalArgumentException.class, () -> {
             imageService.toByteArray(null, "png");
@@ -53,6 +59,7 @@ class ImageServiceImplTest {
     }
 
     @Test
+    @DisplayName("Null Format")
     void testToByteArray_NullFormat() {
         assertThrows(IllegalArgumentException.class, () -> {
             imageService.toByteArray(testImage, null);
